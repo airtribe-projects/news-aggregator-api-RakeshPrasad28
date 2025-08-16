@@ -1,9 +1,12 @@
 const express = require('express');
+const authRoutes = require('./routes/auth.js');
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/auth', authRoutes);
 
 app.listen(port, (err) => {
     if (err) {
